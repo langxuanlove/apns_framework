@@ -6,7 +6,7 @@
   </context-param>
 	<context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>Gnet_Info</param-value>
+		<param-value>msgsys</param-value>
 	</context-param>
   <listener>
     <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>

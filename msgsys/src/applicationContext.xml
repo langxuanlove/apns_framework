@@ -61,8 +61,7 @@
 	<!-- 配置连接数据库 消息保存的数据库-->
 	<bean id="dataSourceInfo" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-   		<property name="jdbcUrl" value="jdbc:mysql://192.168.4.52:3306/gnet_info"></property>
-   		<!-- <property name="jdbcUrl" value="jdbc:mysql://114.112.90.46:7733/gnet_iot_sys"></property> -->
+   		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"></property>
    		<property name="user" value="root"></property>
    		<property name="password" value="123456"></property>
     	<property name="minPoolSize" value="10" />
@@ -128,7 +127,7 @@
     
 	      <!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供-->
     <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-        <property name="brokerURL" value="failover:(tcp://192.168.4.25:61616,tcp://192.168.4.26:61616,tcp://192.168.4.27:61616)"/>
+        <property name="brokerURL" value="failover:(tcp://localhost:61616,tcp://localhost:61617,tcp://localhost:61618)"/>
         <property name="transportListener">
 	        	<bean class="com.gnet.action.listener.ServerTransportListener"/> 
 	    </property>
@@ -147,14 +146,14 @@
         <constructor-arg>  
        <!--  监听发送给服务器的消息  
             <value>queue</value>-->
-            <value>gnet_queue</value>
+            <value>1queue</value>
         </constructor-arg> 
     </bean> 
     <!--这个是订阅目的地-->  
    <bean id="queueDestinationTopic" class="org.apache.activemq.command.ActiveMQTopic">  
         <constructor-arg>  
      <!--     监听发送给服务器的消息-->
-            <value>gnet_topic</value>  
+            <value>1topic</value>  
         </constructor-arg>  
     </bean>  
     
